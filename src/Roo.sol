@@ -30,7 +30,7 @@ contract Roo {
         verifyPayment(paidInEther ? address(0) : address(1))
         returns (address)
     {
-        SoloMint soloMint = new SoloMint(_name, _symbol);
-        return address(soloMint);
+        Joey joey = new Joey(_name, _symbol);
+        return address(joey);
     }
 }
