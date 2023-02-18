@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import "./Joey.sol";
 
-contract RooMint {
+contract Roo {
     event ContractDeployed(address deployer, address contractAddress);
 
     uint256 public etherDeployCost;

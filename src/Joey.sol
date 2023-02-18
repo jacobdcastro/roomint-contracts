@@ -5,7 +5,7 @@ import "openzeppelin/token/ERC721/extensions/ERC721URIStorage.sol";
 import "openzeppelin/access/ownable.sol";
 import "openzeppelin/utils/Counters.sol";
 
-contract SoloMint is ERC721URIStorage, Ownable {
+contract Joey is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
