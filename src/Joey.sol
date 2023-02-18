@@ -17,9 +17,8 @@ contract Joey is ERC721URIStorage, Ownable {
         return "ipfs://";
     }
 
-    function createNft(address _to, string memory _tokenURI)
-        public
-        onlyOwner
+    function mint(address _to, string memory _tokenURI)
+        internal
         returns (uint256)
     {
         uint256 newTokenId = _tokenIds.current();
@@ -29,6 +28,25 @@ contract Joey is ERC721URIStorage, Ownable {
 
         _tokenIds.increment();
         return newTokenId;
+    }
+
+    function createNft(address _to, string memory _tokenURI)
+        public
+        onlyOwner
+        returns (uint256)
+    {
+        uint256 newTokenId = mint(_to, _tokenURI);
+        return newTokenId;
+    }
+
+    function createBatchNfts(address[] memory _tos, string[] memory _tokenURIs)
+        public
+        onlyOwner
+    {
+        require(_tos.length == _tokenURIs.length, "Joey: invalid input");
+        for (uint256 i = 0; i < _tos.length; i++) {
+            mint(_tos[i], _tokenURIs[i]);
+        }
     }
 
     function setTokenURI(uint256 _tokenId, string memory _tokenURI)
