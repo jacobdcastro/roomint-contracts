@@ -11,7 +11,9 @@ contract Joey is ERC721URIStorage, Ownable {
 
     constructor(string memory _name, string memory _symbol)
         ERC721(_name, _symbol)
-    {}
+    {
+        transferOwnership(tx.origin);
+    }
 
     function _baseURI() internal pure override returns (string memory) {
         return "ipfs://";

@@ -4,6 +4,8 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "../src/Joey.sol";
 
+// this only tests the Joey contract alone and
+// NOT within the context of the Roo deployment contract
 contract JoeyTest is Test {
     Joey joey;
     address public owner = 0xaFA353D34e6852ca1E49Da56f2F49e03aecEf325;
